@@ -63,9 +63,7 @@ public class MainContentTalkController{
 
     @FXML private Label systemMsgLabel;
 
-    /**
-    * 最近联系人的Vbox列表
-    * */
+
     @FXML
     public  VBox peopleBorderPaneList;
 
@@ -75,9 +73,7 @@ public class MainContentTalkController{
     @FXML
     private TextArea msgContent;
 
-    /**
-    *构造函数 为文本域添监听回车事件
-    * */
+
 //    public MainContentTalkController(){
 
 
@@ -94,7 +90,7 @@ public class MainContentTalkController{
 
     @FXML
     public void initialize(){
-        //监听单击系统消息
+
         talkSysInfoList.setOnMouseClicked(new EventHandler <MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -106,11 +102,6 @@ public class MainContentTalkController{
     }
 
 
-    /**
-    * 初始化聊天界面
-    * 包括右侧消息记录的加载和调用creatTalkList()方法更新左侧最近联系人
-    * 如果是仅更新右侧则参数为 RIGHT 都更新为BOTH
-    **/
     public void loadInfo(HashMap<String, String> info,String type) {
         this.talkHasTalk.setVisible(true);
         this.talkNoTalk.setVisible(false);
@@ -121,8 +112,7 @@ public class MainContentTalkController{
             sidLabel.setText(info.get("sid"));
             msgRecordList = gson.fromJson(info.get("record"), new TypeToken<List<p2pmsgRecord>>() {}.getType());
             this.msgRecordListBox.getChildren().clear();
-            //初始化消息记录
-            //TODO 缓存处理
+
             for(p2pmsgRecord personInfo : msgRecordList){
                 HBox hBox = new HBox();
     //            StackPane stackPane = new StackPane();
@@ -140,7 +130,7 @@ public class MainContentTalkController{
     //            stackPane.getChildren().addAll(rectangle,label);
 
 
-                //头像啊~~
+        
                 BorderPane headPane = new BorderPane();
                 headPane.getStyleClass().addAll("people-headPane-talk");
                 Circle circle = new Circle();
@@ -148,7 +138,7 @@ public class MainContentTalkController{
                 circle.setCenterX(25);
                 circle.setCenterY(25);
                 String url;
-                //判断是自己的消息 还是朋友的消息
+          
                 if(Integer.parseInt(personInfo.getFromSid())==MainApp.Mysid){
                     hBox.setAlignment(Pos.CENTER_RIGHT);
                     hBox.setPadding(new Insets(10,20,10,10));
@@ -182,10 +172,10 @@ public class MainContentTalkController{
             this.talkScrollPane.setVvalue(999999999);
 
             if(type.equals("BOTH")){
-                //左侧最近联系人列表
+   
                 this.addTalkList(info.get("sid"),info.get("name"),"send","");
             }
-            //为textArea添加监听回车事件
+ 
             this.msgContent.setOnKeyReleased(new EventHandler<KeyEvent>(){
                 public void handle(KeyEvent event) {
                     if(event.getCode()== KeyCode.ENTER){
@@ -200,24 +190,21 @@ public class MainContentTalkController{
 
     }
 
-    /**
-    *  左侧最近联系人列表每个单独联系人的添加与置顶
-    *  仅在第一次添加至最近联系人列表时起作用其他情况下 由其他方法进行上浮等操作
-    * */
+
     public void addTalkList(String sid,String name,String type,String lastMsg){
         System.out.println(sid+name+type+lastMsg);
-        //若Hbox中已有则转到，无则添加
+ 
         if(this.recentPeople.contains(Integer.parseInt(sid))){
         }else{
 
-            //获取最近一条消息
+   
             String lastWords = "";
             if(type.equals("send")){
                 if(msgRecordList.size()>0){
                     lastWords = msgRecordList.get(msgRecordList.size()-1).getContent();
                 }
             }else if(type.equals("rec")){
-                lastWords = "[未读消息]";
+                lastWords = "[unread message]";
             }
 
             BorderPane peopleBorderPane = this.creatTalkList("123",name,sid,lastWords);
@@ -227,15 +214,15 @@ public class MainContentTalkController{
             });
         }
 
-        //当已在最近联系人列表且接收到消息时
+
         if(type.equals("rec")){
             Platform.runLater(() -> {
-                //获取这个人的BorderPane!!
+
                 BorderPane thisFriendBorderPane = (BorderPane) peopleBorderPaneList.lookup("#"+sid);
-                //更新最后聊天记录！
+       
                 Label lastWordLabel = (Label)thisFriendBorderPane.lookup("#lastWords");
                 lastWordLabel.setText(lastMsg);
-                //上浮到最顶层!!!!!!
+
                 this.peopleBorderPaneList.getChildren().remove(thisFriendBorderPane);
                 this.peopleBorderPaneList.getChildren().add(0,thisFriendBorderPane);
             });
@@ -243,23 +230,20 @@ public class MainContentTalkController{
         }
     }
 
-    /**
-     *左侧最近聊天联系人列表每个单独联系人的生成
-     **/
     public BorderPane creatTalkList(String headAddress,String nickName,String sid,String lastWord){
-        //添加到list中
+
         this.recentPeople.add(Integer.parseInt(sid));
 
         BorderPane peopleBorderPane =  new BorderPane();
         peopleBorderPane.setId(sid);
         peopleBorderPane.getStyleClass().addAll("talk-people-BorderPane");
 
-        /*联系人右侧昵称和最后发言BorderPane容器*/
+    
         BorderPane peopleBorderPaneRight =  new BorderPane();
         peopleBorderPaneRight.getStyleClass().addAll("talk-people-BorderPane-Right","contacts-list-border");
 //                  peopleBorderPaneRight.getStyleClass().addAll("contacts-list-border");
 
-        //头像啊~~
+    
         BorderPane headPane = new BorderPane();
         headPane.getStyleClass().addAll("people-headPane");
         Circle circle = new Circle();
@@ -292,12 +276,12 @@ public class MainContentTalkController{
         peopleBorderPane.setRight(peopleBorderPaneRight);
 
 
-        //监听点击联系人事件
+
         peopleBorderPane.setOnMouseClicked(new EventHandler <MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Label lastWords = (Label)peopleBorderPane.lookup("#lastWords");
-                if(lastWords.getText().equals("[未读消息]")){
+                if(lastWords.getText().equals("[unread message]")){
                     lastWords.setText("");
                 }
                 HashMap<String,String> hashMap = new HashMap<String,String>();
@@ -319,17 +303,14 @@ public class MainContentTalkController{
 
 
 
-    /**
-    *处理发送按钮的点击事件
-    * */
     @FXML
     private void sendMsgBtnClick(){
-        //获取输入框消息
+
         String msgContent = this.msgContent.getText();
         if(msgContent.length()==0){
             return;
         }
-        //消灭回车符
+   
         StringBuffer stringBuffer = new StringBuffer(msgContent);
         if(stringBuffer.charAt(msgContent.length()-1)=='\n'){
             stringBuffer.deleteCharAt(msgContent.length()-1);
@@ -338,18 +319,14 @@ public class MainContentTalkController{
         if(msgContent.length()==0){
             return;
         }
-        //获取消息类型
-        //获取发送、接受者账号
-        //调用发送方法
+ 
         this.sendMsg("p2p", Integer.toString(MainApp.Mysid),this.sidLabel.getText(),msgContent);
 
 
     }
 
 
-    /**
-    * 发送点对点普通消息
-    * */
+
     public void sendMsg(String type,String fromsid,String tosid,String msgContent){
 
         if(type.equals("p2p")){
@@ -362,14 +339,14 @@ public class MainContentTalkController{
             msgHashMap.put("time",time);
             msgHashMap.put("content",msgContent);
             msgHashMap.put("type","p2p");
-        /*发送至服务器*/
+
             this.client.sendMsg(gson.toJson(msgHashMap));
             System.out.println(gson.toJson(msgHashMap));
-        /*清除输入框*/
+    
             this.msgContent.clear();
-        /*加入到记录框*/
+ 
 
-            //头像啊~~
+    
             BorderPane headPane = new BorderPane();
             headPane.getStyleClass().addAll("people-headPane-talk");
             Circle circle = new Circle();
@@ -396,14 +373,11 @@ public class MainContentTalkController{
             label.getStyleClass().addAll("talk-sendmsg-label");
             this.msgRecordListBox.getChildren().addAll(hBox);
 
-            //滚到最下面！
+   
             this.talkScrollPane.setVvalue(999999999);
-            //获取这个人的BorderPane!!
-            BorderPane thisFriendBorderPane = (BorderPane) peopleBorderPaneList.lookup("#"+tosid);
-            //更新最后聊天记录！
+            BorderPane thisFriendBorderPane = (BorderPane) peopleBorderPaneList.lookup("#"+tosid);     
             Label lastWordLabel = (Label)thisFriendBorderPane.lookup("#lastWords");
             lastWordLabel.setText(msgContent);
-            //上浮到最顶层!!!!!!
             peopleBorderPaneList.getChildren().remove(thisFriendBorderPane);
             peopleBorderPaneList.getChildren().add(0,thisFriendBorderPane);
         }else if(type.equals("addUser")) {
@@ -416,7 +390,6 @@ public class MainContentTalkController{
             msgHashMap.put("time",time);
             msgHashMap.put("content",msgContent);
             msgHashMap.put("type","addUser");
-        /*发送至服务器*/
             this.client.sendMsg(gson.toJson(msgHashMap));
             System.out.println(gson.toJson(msgHashMap));
         }else if(type.equals("agreeAdd")) {
@@ -429,7 +402,7 @@ public class MainContentTalkController{
             msgHashMap.put("time",time);
             msgHashMap.put("content",msgContent);
             msgHashMap.put("type","agreeAdd");
-        /*发送至服务器*/
+
             this.client.sendMsg(gson.toJson(msgHashMap));
             System.out.println(gson.toJson(msgHashMap));
         }else if(type.equals("disagreeAdd")) {
@@ -442,7 +415,7 @@ public class MainContentTalkController{
             msgHashMap.put("time",time);
             msgHashMap.put("content",msgContent);
             msgHashMap.put("type","disagreeAdd");
-        /*发送至服务器*/
+
             this.client.sendMsg(gson.toJson(msgHashMap));
             System.out.println(gson.toJson(msgHashMap));
         }
@@ -450,15 +423,7 @@ public class MainContentTalkController{
 
     }
 
-    /**
-    *  接收点对点消息
-    * */
 
-
-
-    /**
-    * 接收处理服务器发送过来的消息
-    * */
     public void handleMsgFromServer(String msgString) throws SQLException {
         Msg recMsg = gson.fromJson(msgString,Msg.class);
         String friendSid = recMsg.getMysid();
@@ -467,11 +432,10 @@ public class MainContentTalkController{
         ResultSet friendInfo = this.db.getOthersInfo(Integer.parseInt(friendSid));
         friendInfo.next();
         String nickName = friendInfo.getString("nickname");
-        //私人讯息
+
         if(type.equals("p2p")){
-            //对应好友添加到最近联系人列表中(首位)
+
             addTalkList(friendSid,nickName,"rec",content);
-            //更新消息记录
             HashMap<String,String> hashMap = new HashMap<String,String>();
             hashMap.put("name",nickName);
             hashMap.put("sid",friendSid);
@@ -484,9 +448,6 @@ public class MainContentTalkController{
             }
             loadInfo(hashMap,"RIGHT");
 
-            //显示气泡
-
-            //播放提示音
             String url = getClass().getResource("/resources/music/newMsg.wav").toString();
             Media media = new Media(url);
             MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -495,40 +456,40 @@ public class MainContentTalkController{
             mediaPlayer.play();
             //
 
-            //上线消息
+
         }else if(type.equals("onLine")){
 
-            //下线消息
+
         }else if(type.equals("offLine")){
 
         }else if(type.equals("addUser")){
             Platform.runLater(() -> {
 
-                systemMsgLabel.setText("系统消息[未读]");
+                systemMsgLabel.setText("system message[unread]");
                 HBox hBox = new HBox();
                 Label label = new Label();
 //                label.
-                label.setText(friendSid+"想要加你为好友          ");
-                Button agreeButton = new Button("同意");
+                label.setText(friendSid+"want to add you          ");
+                Button agreeButton = new Button("accept");
                 agreeButton.setStyle("-fx-background-color: #12B7F5");
                 agreeButton.setTextFill(Color.WHITE);
-                Button disagreeBtn = new Button("拒绝");
+                Button disagreeBtn = new Button("reject");
                 agreeButton.setTextFill(Color.WHITE);
 
 
-                //右侧未读消息列表添加
+
                 hBox.getChildren().addAll(label,agreeButton,disagreeBtn);
                 systemMsgVbox.getChildren().addAll(hBox);
 
-                //监听同意按钮
+
                 agreeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
-                        //发送消息表示同意
+     
                         sendMsg("agreeAdd",Integer.toString(MainApp.Mysid),friendSid,"agreeAdd");
 //                        hBox.getChildren().removeAll();
 //                        ChoiceBox choiceBox = new ChoiceBox();
-                        //获取分组列表/加上该好友
+                    
                         try {
                             ResultSet resultSet = db.getOthersInfo(Integer.parseInt(friendSid));
                             resultSet.next();
@@ -538,30 +499,27 @@ public class MainContentTalkController{
                             e.printStackTrace();
                         }
 
-                        //更新联系人
+          
                         addTalkList(friendSid,nickName,"rec","");
 
-                        //未读去掉
-                        systemMsgLabel.setText("系统消息");
+           
+                        systemMsgLabel.setText("system message");
 
-                        //消息变更
+                  
                         systemMsgVbox.getChildren().clear();
 
 
                     }
                 });
 
-                //监听拒绝按钮
+  
                 disagreeBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
                         sendMsg("disagreeAdd",Integer.toString(MainApp.Mysid),friendSid,"disagreeAdd");
-                        //未读去掉
-                        systemMsgLabel.setText("系统消息");
-
-                        //消息变更
+             
+                        systemMsgLabel.setText("system message");
                         systemMsgVbox.getChildren().clear();
-                        //已拒绝
                     }
                 });
 
@@ -570,13 +528,11 @@ public class MainContentTalkController{
         }else if(type.equals("agreeAdd")){
             Platform.runLater(() -> {
                 //TODO
-                //产生系统消息 已同意
-                systemMsgLabel.setText("系统消息[未读]");
+                systemMsgLabel.setText("system message[unread]");
                 HBox hBox = new HBox();
                 Label label = new Label();
 //                label.
-                label.setText(friendSid+"已同意你的好友请求");
-                //选择昵称和分组/加上该好友
+                label.setText(friendSid+"agreed to add you as friend");
 
                 try {
                     db.addFriend(MainApp.Mysid,Integer.parseInt(friendSid),nickName);
@@ -585,18 +541,14 @@ public class MainContentTalkController{
                 }
 
 
-                //更新列表
                 addTalkList(friendSid,nickName,"rec","");
 
             });
         }
-        //TODO 其他消息类型
+        //TODO
 
     }
 
-    /**
-    * 初始化时 从服务器获取未读消息并在最近联系人列表中初始化
-    * */
     public void getUnreadMsg() throws SQLException {
         HashMap<Integer,Integer> hashMap = db.getUnreadMsg(MainApp.Mysid);
         if(hashMap.size()!=0){
@@ -604,7 +556,7 @@ public class MainContentTalkController{
                 String nickName = db.getFriendNickName(MainApp.Mysid,sid);
                 addTalkList(Integer.toString(sid),nickName,"rec","");
             }
-            //清除未读消息~
+
             db.deleteUnreadMsg(MainApp.Mysid);
 
         }
