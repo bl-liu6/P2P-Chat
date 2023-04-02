@@ -5,7 +5,7 @@ public class p2pmsgRecord {
     /**
      * toSid : 2016190918
      * fromSid : 2016501308
-     * time : 2017-12-31 02:22:16.0
+     * time : 03/30 02:22:16.0
      * content : Hello
      */
 
