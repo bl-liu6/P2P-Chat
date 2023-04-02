@@ -25,7 +25,7 @@
                     <Insets left="20.0" />
                   </HBox.margin>
                 </Pane>
-                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="账号管理" />
+                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="Account mamagement" />
               </children>
             </HBox>
             <HBox fx:id="Info" alignment="CENTER_LEFT" onMouseClicked="#clickInfo" prefHeight="60.0" prefWidth="200.0" styleClass="set-option">
@@ -35,7 +35,7 @@
                     <Insets left="20.0" />
                   </HBox.margin>
                 </Pane>
-                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="我的资料" />
+                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="My profile" />
               </children>
             </HBox>
             <HBox fx:id="Msg" alignment="CENTER_LEFT" onMouseClicked="#clickMsg" prefHeight="60.0" prefWidth="200.0" styleClass="set-option">
@@ -45,7 +45,7 @@
                     <Insets left="20.0" />
                   </HBox.margin>
                 </Pane>
-                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="消息提醒" />
+                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="message notification" />
               </children>
             </HBox>
             <HBox fx:id="Theme" alignment="CENTER_LEFT" onMouseClicked="#clickTheme" prefHeight="60.0" prefWidth="200.0" styleClass="set-option">
@@ -55,7 +55,7 @@
                     <Insets left="20.0" />
                   </HBox.margin>
                 </Pane>
-                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="主题表情" />
+                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="Theme moji" />
               </children>
             </HBox>
             <HBox fx:id="Privacy" alignment="CENTER_LEFT" onMouseClicked="#clickPrivacy" prefHeight="60.0" prefWidth="200.0" styleClass="set-option">
@@ -65,7 +65,7 @@
                     <Insets left="20.0" />
                   </HBox.margin>
                 </Pane>
-                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="隐私安全" />
+                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="Privacy" />
               </children>
             </HBox>
             <HBox fx:id="Assist" alignment="CENTER_LEFT" onMouseClicked="#clickAssist" prefHeight="60.0" prefWidth="200.0" styleClass="set-option">
@@ -75,7 +75,7 @@
                     <Insets left="20.0" />
                   </HBox.margin>
                 </Pane>
-                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="辅助功能" />
+                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="Accesibility" />
               </children>
             </HBox>
             <HBox fx:id="About" alignment="CENTER_LEFT" onMouseClicked="#clickAbout" prefHeight="60.0" prefWidth="200.0" styleClass="set-option">
@@ -85,7 +85,7 @@
                     <Insets left="20.0" />
                   </HBox.margin>
                 </Pane>
-                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="关于" />
+                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="About" />
               </children>
             </HBox>
           </children>
