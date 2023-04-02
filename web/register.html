@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
     <head>
-        <title>NoTalk账号注册</title>
+        <title>P2P Chat</title>
         <meta charset="utf-8">
         <link href="main.css" rel="stylesheet" type="text/css" />
     </head>
@@ -17,22 +17,22 @@
                     <div class="login-form">
                         <div class="sign-in-htm">
                             <div class="group">
-                                <label for="sid" class="label">学号</label>
+                                <label for="sid" class="label">student id</label>
                                 <input id="sid" type="text" class="input">
                             </div>
                             <div class="group">
-                                <label for="nickname" class="label">昵称</label>
+                                <label for="nickname" class="label">nickname</label>
                                 <input id="nickname" type="text" class="input">
                             </div>
                             <div class="group">
-                                <label for="signature" class="label">个性签名</label>
+                                <label for="signature" class="label">signature</label>
                                 <input id="signature" type="text" class="input" name="signature">
                             </div>
                             <div class="group sex-group">
                                 <input id="check1" type="radio" class="check" name="sex" value="0">
-                                <label for="check1"><span class="icon"></span> 女孩纸</label>
+                                <label for="check1"><span class="icon"></span>girl</label>
                                 <input id="check2" type="radio" class="check" name="sex" value="1">
-                                <label for="check2"><span class="icon"></span> 男孩纸</label>
+                                <label for="check2"><span class="icon"></span>boy</label>
                             </div>
                             <div class="group">
                                 <input type="button" class="button" id="submitBtn" value="Sign up">
@@ -61,16 +61,16 @@
     var sidres = sid.match(reg);
     var complete = 1;
      if(sid==''){
-        alert("请填写账号");
+        alert("Please type username");
         complete = 0;
      }else if(sidres==null){
-        alert("请输入正确格式学号");
+        alert("Please type student id");
         complete = 0;        
      }else if(nickname==''){
-        alert("给自己取个名字吧");
+        alert("Name yourself");
         complete = 0;        
      }else if(sex==undefined){
-        alert("是女孩纸还是男孩纸呀？");
+        alert("Boy or Girl");
         complete = 0;        
      }
      if(complete==1){
@@ -80,9 +80,9 @@
         data:{"sid":sid,"nickname":nickname,"sex":sex,"signature":signature},
         success:function(data){
             if(data==1){
-                alert("注册成功！快来聊天吧");
+                alert("Successfully registered! Start chatting now!");
             }else if(data==-1){
-                alert("已经注册了，开始聊天吧");                
+                alert("Already registered!");                
             }
         }
      });
