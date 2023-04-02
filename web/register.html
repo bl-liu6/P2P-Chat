@@ -1,0 +1,92 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>NoTalk账号注册</title>
+        <meta charset="utf-8">
+        <link href="main.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div class="login-wrap">
+            <div class="login-html">
+                <div class="main-title-div">
+                    <span class="main-title">Welcome To NoTalk</span>
+                </div>
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign up</label>
+                <!-- <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label> -->
+                <form action="./register.php" method="POST">
+                    <div class="login-form">
+                        <div class="sign-in-htm">
+                            <div class="group">
+                                <label for="sid" class="label">学号</label>
+                                <input id="sid" type="text" class="input">
+                            </div>
+                            <div class="group">
+                                <label for="nickname" class="label">昵称</label>
+                                <input id="nickname" type="text" class="input">
+                            </div>
+                            <div class="group">
+                                <label for="signature" class="label">个性签名</label>
+                                <input id="signature" type="text" class="input" name="signature">
+                            </div>
+                            <div class="group sex-group">
+                                <input id="check1" type="radio" class="check" name="sex" value="0">
+                                <label for="check1"><span class="icon"></span> 女孩纸</label>
+                                <input id="check2" type="radio" class="check" name="sex" value="1">
+                                <label for="check2"><span class="icon"></span> 男孩纸</label>
+                            </div>
+                            <div class="group">
+                                <input type="button" class="button" id="submitBtn" value="Sign up">
+                            </div>
+                            <div class="hr"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+    
+</html>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+//  if($("check1").)
+
+ $("#submitBtn").on("click",function(){
+    var sid = $("#sid").val();
+    var nickname = $("#nickname").val();
+    var birthday = $("#birthday").val();
+    var signature = $("#signature").val();
+    var sex = $("input[name='sex']:checked").val();
+
+    var reg = /^201\d{7}$/;  
+    var sidres = sid.match(reg);
+    var complete = 1;
+     if(sid==''){
+        alert("请填写账号");
+        complete = 0;
+     }else if(sidres==null){
+        alert("请输入正确格式学号");
+        complete = 0;        
+     }else if(nickname==''){
+        alert("给自己取个名字吧");
+        complete = 0;        
+     }else if(sex==undefined){
+        alert("是女孩纸还是男孩纸呀？");
+        complete = 0;        
+     }
+     if(complete==1){
+        $.ajax({
+        url:"./register.php",
+        type:'POST',
+        data:{"sid":sid,"nickname":nickname,"sex":sex,"signature":signature},
+        success:function(data){
+            if(data==1){
+                alert("注册成功！快来聊天吧");
+            }else if(data==-1){
+                alert("已经注册了，开始聊天吧");                
+            }
+        }
+     });
+     }
+     
+ });
+</script>
