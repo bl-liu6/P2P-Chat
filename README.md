@@ -2,6 +2,33 @@
 
 P2P Chat is a simple chat tool implemented based on the Java language
  
+## Major elements
+### Discovery
+- Users can be discovered via a centralized server.  This is to update IP address for peer to peer communications
+- The client needs to make sure the IP address in discovery server is correct.  One way of doing it is to have a keep alive packet. If it is not received, the user is not available
+- When a user is discovered, clients can send them any updates or new chats(Synchronization)
+### Session Initiation
+- To meet a new user, you send a message
+- A user can block other users.  This means they become not available to you
+- If you are connected to any user, you will be receiving messages from the user
+- You can mute a user for period of time.  In that case, you will nto see their messages
+### Communication and Synchronization
+- When a user is discovered, other users can chat with that person
+- When a user is discovered, content waiting to be sent from other clients are sent to that user(Synchronization)
+### Data Storage
+- Data will be stored in the database
+## MVP
+### Discovery
+- You register by making yourself findable by others(as in Telegram or Whatsapp)
+### Session Initiation
+- Send a message to users who you want to connect with
+- Communication and Synchronization
+- You can live connect with any of your friends who is available now
+- For users who are not available (offline), you can write messages, which are stored on your own client
+- The data for offline users will be synchronized when both users are discoverable
+### Security
+- All is hashed
+
 ## Interface
   The UI interface is developed using JavaFX. Because JavaFX has better visual effects than Swing, it was chosen for this project
 ## Implemented Features
