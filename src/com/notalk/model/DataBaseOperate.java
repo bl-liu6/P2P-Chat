@@ -17,12 +17,12 @@ import static com.notalk.util.Echo.echo;
 
 public class DataBaseOperate {
 
-    // JDBC 驱动名及数据库 URL
+
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://112.74.62.166:3306/notalk?useSSL=false&useUnicode=true&characterEncoding=utf-8";
 //    static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/notalk?useSSL=false&useUnicode=true&characterEncoding=utf-8";
 
-    // 数据库的用户名与密码，需要根据自己的设置
+
 //    static final String USER = "root";
     static final String USER = "remote";
 //    static final String PASS = "root";
@@ -33,16 +33,13 @@ public class DataBaseOperate {
     Gson gson = new Gson();
     public DataBaseOperate() {
         try {
-            // 加载JDBC驱动程序
+
             Class.forName("com.mysql.jdbc.Driver");
-            // 打开链接
-//            System.out.println("连接数据库...");
+//            System.out.println("connected to database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
         } catch (SQLException se) {
-            // 处理 JDBC 错误
             se.printStackTrace();
         } catch (Exception e) {
-            // 处理 Class.forName 错误
             e.printStackTrace();
         }
     }
@@ -53,7 +50,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 该用户是否已注册，即成功添加到该数据
+     * Whether the user has registered or been successfully added to the data
      *
     * */
     public int hasThisUser(int sid) throws SQLException {
@@ -72,7 +69,7 @@ public class DataBaseOperate {
 
 
     /**
-    * 注册新用户
+    * register new user
     * */
     public int addNewUser(int sid, String password, String nickname, int sex, String birthday, String head_img,String sinature) throws SQLException {
         String sql = "INSERT INTO user (sid,password,nickname,sex,birthday,head_img,signature) VALUES (?,?,?,?,?,?,?)";
@@ -89,7 +86,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 获取个人信息
+    * fetch personal data
     * */
     public ResultSet getUserInfo(int sid) throws SQLException {
         String sql = "SELECT * FROM user WHERE sid = " + sid;
@@ -99,7 +96,7 @@ public class DataBaseOperate {
     }
 
     /**
-     * 获取非自己信息
+     * fetch other people's data
      * */
     public ResultSet getOthersInfo(int sid) throws SQLException {
         String sql = "SELECT sid,nickname,sex,birthday,head_img,signature,status FROM user WHERE sid = " + sid;
@@ -109,7 +106,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 修改个人信息
+    * modify personal info
     * */
     public int adviseUserInfo(int sid, String password, String nickname, int sex, String birthday, String head_img, String signature, String set_info) throws SQLException {
         String sql = "UPDATE user  SET password =?,nickname =?,sex =?,birthday =?,head_img =?,signature =?,set_info =? WHERE sid = " + sid;
@@ -126,7 +123,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 上线
+    * online
     * */
     public int setOnline(int sid) throws SQLException {
         String sql = "UPDATE user SET status = 1 WHERE sid = "+sid;
@@ -136,7 +133,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 下线
+    * offline
     * */
     public int setOffline(int sid) throws SQLException {
         String sql = "UPDATE user SET status = 0 WHERE sid = "+sid;
@@ -146,12 +143,11 @@ public class DataBaseOperate {
     }
 
     /**
-    *添加好友
+    * add friends
     * */
     public int addFriend(int my_sid,int friend_sid,String friend_nickname) throws SQLException {
-        //获取最大组id
         class Group{
-            private String id;  //属性都定义成String类型，并且属性名要和Json数据中的键值对的键名完全一样
+            private String id;  
             private String name;
 
             public void setId(String id) {
@@ -191,7 +187,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 删除好友
+    * delete friends
     * */
     public int deleteFriend(int my_sid,int friend_sid) throws SQLException {
         String sql = "DELETE FROM friends WHERE my_sid = "+my_sid+" AND friend_sid = "+friend_sid;
@@ -201,7 +197,7 @@ public class DataBaseOperate {
     }
 
     /**
-    *修改好友昵称
+    * modify friends nickname
     * */
     public int reviseFriendNickname(int my_sid,int friend_sid,String nickname) throws SQLException {
         String sql = "UPDATE friends SET nickname = ? AND mysid = "+my_sid+" AND friend_sid"+friend_sid;
@@ -212,7 +208,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 新建好友分组
+    * create new group
     * */
     public int creatFriendGroup(int mysid,String groupName){
 
@@ -220,17 +216,16 @@ public class DataBaseOperate {
     }
 
     /**
-    * 移动好友分组
+    * move groups
     * */
 
     /**
-    * 获取好友列表(分组输出)
+    * get friends list
     * */
     public String getFriendsList(int my_sid) throws SQLException {
         String sql = "SELECT * FROM friends WHERE my_sid = "+my_sid+" ORDER BY group_id";
         stmt = conn.createStatement();
         ResultSet res = stmt.executeQuery(sql);
-        //获取好友分组列表(json格式，需要先解析)
         String groupList = this.getFriendsGroupList(my_sid);
         Map<Integer,String> groupListMap = gson.fromJson(groupList,new TypeToken<HashMap<Integer,String>>(){}.getType());
         List<Map<String,List>> friendsList = new ArrayList<>();
@@ -241,7 +236,6 @@ public class DataBaseOperate {
             Object key = entry.getKey();
             Object val = entry.getValue();
             Map<String,List> friendsListNameAndData = new HashMap<String,List>();
-            //根据组别名去遍历分组好友
             List<Map> thisGroupList = new ArrayList<Map>();
             while (res.next()){
                 if(res.getInt("group_id")==(Integer)key){
@@ -265,7 +259,7 @@ public class DataBaseOperate {
     }
 
     /**
-     * 获取好友列表(仅账号)
+     * get friends list(id only)
      * */
     public String getFriendsSidList(int my_sid) throws SQLException {
         String sql = "SELECT * FROM friends WHERE my_sid = "+my_sid;
@@ -279,7 +273,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 获取好友分组列表
+    * get friends group list
     * */
     public String getFriendsGroupList(int sid) throws SQLException {
         String sql = "SELECT friends_group_list FROM user WHERE sid = "+sid;
@@ -292,7 +286,7 @@ public class DataBaseOperate {
 
 
     /**
-    * 获取好友备注！
+    * get friends info
     * */
     public String getFriendNickName(int my_sid,int friend_sid) throws SQLException {
         String sql = "SELECT friend_nickname FROM friends WHERE friend_sid = "+friend_sid+" AND my_sid = "+my_sid;
@@ -310,7 +304,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 发送好友消息
+    * send message
     * */
     public int sendfriendMsg(int from_sid,int to_sid,String content,String time) throws SQLException {
         String sql = "INSERT INTO p2p_messages (from_sid,to_sid,content,time) VALUES (?,?,?,?)";
@@ -324,7 +318,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 发送好友消息(好友未上线->未读)
+    * send message(friend offline -> unread)
     * */
     public int sendfriendUnreadMsg(int from_sid, int to_sid, String content, String time) throws SQLException {
         String sql = "INSERT INTO p2p_unread_messages (from_sid,to_sid,content,time) VALUES (?,?,?,?)";
@@ -339,7 +333,7 @@ public class DataBaseOperate {
 
 
     /**
-    * 获取p2p聊天记录
+    * get p2p chat history
     * */
     public String getMsgRecord(int from_sid,int to_sid) throws SQLException {
         String sql = "SELECT * FROM p2p_messages WHERE ( from_sid = "+from_sid+" AND to_sid = "+to_sid+" ) OR ( from_sid = "+to_sid+" AND to_sid = "+from_sid+") ORDER BY time";
@@ -359,7 +353,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 初始化登录时获取未读聊天记录
+    * initialize unread chat when login
     * */
     public HashMap getUnreadMsg(int userSid) throws SQLException {
         String sql = "SELECT * FROM p2p_unread_messages WHERE to_sid = "+userSid;
@@ -379,7 +373,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 清空未读消息
+    * empty unread message
     * */
     public int deleteUnreadMsg(int userSid) throws SQLException {
         String sql = "DELETE FROM p2p_unread_messages WHERE to_sid = "+userSid;
@@ -391,7 +385,7 @@ public class DataBaseOperate {
 
 
     /**
-    * 创建群组
+    * create group
     * */
     public int creatGroup(int creator,String users_list,String creat_time,String group_name) throws SQLException {
         String sql = "INSERT INTO group_list (creator,users_list,creat_time,group_name) VALUES ('"+creator+"','"+users_list+"','"+creat_time+"','"+group_name+"')";
@@ -401,7 +395,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 删除群
+    * delete group
     * */
     public int deleteGroup(int groupId) throws SQLException {
         String sql = "DELETE FROM group_list WHERE Id = "+groupId;
@@ -411,7 +405,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 加入群
+    * join group
     * */
     public int joinGroup(int user_sid,int group_sid) throws SQLException {
         List<Integer> users_list_old = this.getGroupMemberList(group_sid);
@@ -424,14 +418,14 @@ public class DataBaseOperate {
     }
 
     /**
-    * 退出群
+    * exit group
     * */
     public int quitGroup(int user_sid,int group_sid) throws SQLException {
         List<Integer> users_list_old = this.getGroupMemberList(group_sid);
         for (Integer sid: users_list_old) {
             if(sid.equals(user_sid)){
                 users_list_old.remove(sid);
-                break;      //不break的话会报ConcurrentModificationException错误
+                break;      
             }
         }
         String users_list_new = gson.toJson(users_list_old);
@@ -442,7 +436,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 获取群列表
+    * get group list
     * */
     public ResultSet getGroupList(int sid) throws SQLException {
         String sql = "SELECT * FROM user WHERE sid = "+sid;
@@ -456,7 +450,7 @@ public class DataBaseOperate {
 
 
     /**
-    * 获取群成员(仅账号)
+    * get group member(id only)
     * */
     public List<Integer> getGroupMemberList(int groupId) throws SQLException {
         String sql = "SELECT users_list FROM group_list WHERE Id = "+groupId;
@@ -469,7 +463,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 获取群成员(详细信息)
+    * get group member(detailed info)
     * */
     public List<ResultSet> getGroupMemberListDetail(int groupId) throws SQLException {
         List<Integer> memberList = this.getGroupMemberList(groupId);
@@ -481,7 +475,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 获取群信息
+    * get group info
     * */
     public ResultSet getGroupInfo(int groupId) throws SQLException {
         String sql = "SELECT * FROM group_list WHERE Id = "+groupId;
@@ -492,7 +486,7 @@ public class DataBaseOperate {
 
 
     /**
-    * 发送群信息
+    * send group message
     * */
     public int sendGroupMsg(int from_sid,int to_group_sid,String content,String time) throws SQLException{
         String sql = "INSERT INTO p2g_message (from_sid,to_group_sid,content,time) VALUES (?,?,?,?)";
@@ -506,7 +500,7 @@ public class DataBaseOperate {
     }
 
     /**
-    * 获取p2g聊天记录
+    * get p2g chat history
     * */
     public String getGroupMsgRecord(int from_sid,int group_sid) throws SQLException {
         String sql = "SELECT content,time FROM p2g_messages WHERE  from_sid = "+from_sid+" AND to_group_sid = "+group_sid+"  ORDER BY time";
