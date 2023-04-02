@@ -1,10 +1,10 @@
-#Notalk聊天工具
+# P2P Chat
 
-**Notalk**是基于Java语言实现的一个简易聊天工具总体模仿腾讯旗下UWP版QQ，以下为具体介绍：
+P2P Chat is a simple chat tool implemented based on the Java language
  
-- **界面** ：界面UI使用JavaFX进行开发，设计模仿UWP版QQ，简约清爽。因为JavaFX在视觉效果上比swing要美观一些，因此选择了JavaFx，但其中文开发文档较少，对开发造成了一定的影响。
-部分图标来自iconfont和QQ文件夹下的图片
-- **已实现功能** ：在以全面模仿UWP版QQ为目标下，因为时间原因仅完成了部分功能，具体如下。
+- **Interface** 
+  The UI interface is developed using JavaFX. Because JavaFX has better visual effects than Swing, it was chosen for this project
+- **Implemented Features** ：在以全面模仿UWP版QQ为目标下，因为时间原因仅完成了部分功能，具体如下。
   - 用户注册
   - 添加好友
   - 点对点聊天
