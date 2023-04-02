@@ -17,6 +17,7 @@ P2P Chat is a simple chat tool implemented based on the Java language
 - When a user is discovered, content waiting to be sent from other clients are sent to that user(Synchronization)
 ### Data Storage
 - Data will be stored in the database
+
 ## MVP
 ### Discovery
 - You register by making yourself findable by others(as in Telegram or Whatsapp)
