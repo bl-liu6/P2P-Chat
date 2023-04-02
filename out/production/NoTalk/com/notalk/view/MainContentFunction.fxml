@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.notalk.view.MainContentFunctionController">
+  <children>
+    <BorderPane prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+        <FlowPane hgap="10.0" minWidth="-Infinity" prefHeight="200.0" prefWidth="-1.0" vgap="10.0">
+          <children>
+            <Pane id="functionMsg" maxHeight="140.0" maxWidth="140.0" minHeight="140.0" minWidth="140.0" prefHeight="140.0" prefWidth="140.0" style="" styleClass="function-list-pane" />
+            <Pane id="functionCourse" maxHeight="140.0" maxWidth="140.0" minHeight="140.0" minWidth="140.0" prefHeight="140.0" prefWidth="140.0" styleClass="function-list-pane" />
+            <Pane id="functionScore" maxHeight="140.0" maxWidth="140.0" minHeight="140.0" minWidth="140.0" prefHeight="140.0" prefWidth="140.0" styleClass="function-list-pane" />
+            <Pane id="functionPayHistory" maxHeight="140.0" maxWidth="140.0" minHeight="140.0" minWidth="140.0" prefHeight="140.0" prefWidth="140.0" styleClass="function-list-pane" />
+            <Pane id="functionArrange" maxHeight="140.0" maxWidth="140.0" minHeight="140.0" minWidth="140.0" prefHeight="140.0" prefWidth="140.0" styleClass="function-list-pane" />
+            <Pane id="functionRadio" maxHeight="140.0" maxWidth="140.0" minHeight="140.0" minWidth="140.0" prefHeight="140.0" prefWidth="140.0" styleClass="function-list-pane" />
+            <Pane id="functionDoc" maxHeight="140.0" maxWidth="140.0" minHeight="140.0" minWidth="140.0" prefHeight="140.0" prefWidth="140.0" styleClass="function-list-pane" />
+            <Pane id="functionShop" maxHeight="140.0" maxWidth="140.0" minHeight="140.0" minWidth="140.0" prefHeight="140.0" prefWidth="140.0" styleClass="function-list-pane" />
+          </children>
+          <BorderPane.margin>
+            <Insets left="35.0" />
+          </BorderPane.margin>
+        </FlowPane>
+      </center>
+      <top>
+        <Label prefHeight="54.0" prefWidth="111.0" text="其他服务">
+          <font>
+            <Font size="21.0" />
+          </font>
+          <BorderPane.margin>
+            <Insets left="35.0" />
+          </BorderPane.margin>
+        </Label>
+      </top>
+    </BorderPane>
+  </children>
+  <stylesheets>
+    <URL value="@Main.css" />
+  </stylesheets>
+</AnchorPane>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.shape.Line?>
+
+<BorderPane fx:id="TalkMain" maxHeight="700.0" maxWidth="1070.0" minHeight="700.0" prefHeight="700.0" prefWidth="1070.0" style="" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.notalk.view.RootLayoutController">
+  <left>
+    <BorderPane id="RootLayoutLeft" disable="false" minHeight="350.0" minWidth="70.0" prefHeight="699.0" prefWidth="70.0" style="" visible="true">
+      <bottom>
+        <Pane id="RootLayoutLeftButtonSetting" fx:id="Setting" disable="false" focusTraversable="false" maxHeight="71.0" maxWidth="71.0" minHeight="71.0" minWidth="71.0" mouseTransparent="false" onMouseClicked="#clickSetting" prefHeight="71.0" prefWidth="71.0" snapToPixel="true" />
+      </bottom>
+      <top>
+        <VBox maxHeight="300.0" minHeight="300.0" prefHeight="300.0" prefWidth="65.0">
+          <children>
+            <BorderPane fx:id="MainHead" maxHeight="71.0" maxWidth="71.0" minHeight="71.0" minWidth="71.0" prefHeight="71.0" prefWidth="71.0" />
+            <Pane id="RootLayoutLeftButtonMsg" fx:id="Msg" disable="false" focusTraversable="false" maxHeight="71.0" maxWidth="71.0" minHeight="71.0" minWidth="71.0" onMouseClicked="#clickMsg" prefHeight="71.0" prefWidth="71.0" visible="true" />
+            <Pane id="RootLayoutLeftButtonPeople" fx:id="People" maxHeight="71.0" maxWidth="71.0" minHeight="71.0" minWidth="71.0" onMouseClicked="#clickPeople" prefHeight="71.0" prefWidth="71.0" />
+            <Pane id="RootLayoutLeftButtonFunction" fx:id="Function" maxHeight="71.0" maxWidth="71.0" minHeight="71.0" minWidth="71.0" onMouseClicked="#clickFunciton" prefHeight="71.0" prefWidth="71.0" />
+          </children>
+        </VBox>
+      </top>
+    </BorderPane>
+  </left>
+  <stylesheets>
+    <URL value="@Main.css" />
+  </stylesheets>
+</BorderPane>

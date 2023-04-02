@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane id="loginAnchor" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" style="" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.notalk.view.LoginController">
+  <children>
+    <StackPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <BorderPane id="" disable="false" prefHeight="400.0" prefWidth="600.0" style="">
+          <bottom>
+            <HBox id="HBox" alignment="CENTER" spacing="30.0">
+              <children>
+                <Label fx:id="cantLogin" text="无法登陆" textFill="#ffffffd2" underline="false" wrapText="false" />
+                <Label fx:id="newUser" text="新用户" textFill="#ffffffd0" underline="false" />
+              </children>
+              <padding>
+                <Insets bottom="20.0" />
+              </padding>
+            </HBox>
+          </bottom>
+          <center>
+            <HBox maxHeight="100.0" maxWidth="400.0" minHeight="100.0" minWidth="400.0" prefHeight="100.0" prefWidth="400.0">
+              <children>
+                <Pane maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0" styleClass="login-head-pane">
+                  <stylesheets>
+                    <URL value="@Main.css" />
+                  </stylesheets>
+                </Pane>
+                <VBox maxHeight="100.0" maxWidth="220.0" minHeight="100.0" minWidth="200.0" prefHeight="100.0" prefWidth="220.0">
+                  <children>
+                    <TextField fx:id="sidTextField" alignment="CENTER_LEFT" prefHeight="42.5" prefWidth="235.0" promptText="账号" />
+                    <PasswordField fx:id="passwordField" prefHeight="42.5" prefWidth="235.0" promptText="密码" />
+                  </children>
+                  <padding>
+                    <Insets top="8.0" />
+                  </padding>
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </VBox>
+                <StackPane id="LoginBtn" fx:id="loginBtn" prefHeight="150.0" prefWidth="200.0">
+                  <children>
+                    <Line endX="-80.0" endY="0.0" fill="WHITE" rotate="-45.0" startX="-100.0" stroke="WHITE" strokeWidth="1.0">
+                      <StackPane.margin>
+                        <Insets top="14.5" />
+                      </StackPane.margin>
+                    </Line>
+                    <Line endX="-80.0" endY="0.0" fill="WHITE" rotate="45.0" startX="-100.0" stroke="WHITE">
+                      <StackPane.margin>
+                        <Insets bottom="14.5" />
+                      </StackPane.margin>
+                    </Line>
+                    <Circle id="loginButton" disable="false" fill="#ffffff00" opacity="1.0" radius="28.5" smooth="true" stroke="WHITE" strokeDashOffset="100.0" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.8" visible="true" />
+                  </children>
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </StackPane>
+              </children>
+            </HBox>
+          </center>
+          <stylesheets>
+            <URL value="@Main.css" />
+          </stylesheets>
+        </BorderPane>
+        <BorderPane fx:id="coverPane" prefHeight="200.0" prefWidth="200.0" styleClass="cover-pane" visible="false">
+          <center>
+            <BorderPane maxHeight="150.0" maxWidth="280.0" minHeight="150.0" minWidth="280.0" prefHeight="150.0" prefWidth="280.0" styleClass="cover-content">
+              <bottom>
+                <Button id="login-msg-btn" fx:id="okBtn" mnemonicParsing="false" text="确定" textFill="WHITE" BorderPane.alignment="CENTER_RIGHT">
+                  <BorderPane.margin>
+                    <Insets bottom="8.0" right="15.0" />
+                  </BorderPane.margin>
+                </Button>
+              </bottom>
+              <center>
+                <Label fx:id="loginMsgContent" styleClass="login-msg-text" text="王企鹅" />
+              </center>
+              <top>
+                <Label fx:id="loginMsgType" styleClass="login-msg-text" text="错误">
+                  <BorderPane.margin>
+                    <Insets left="10.0" top="5.0" />
+                  </BorderPane.margin>
+                </Label>
+              </top>
+              <BorderPane.margin>
+                <Insets />
+              </BorderPane.margin>
+            </BorderPane>
+          </center>
+        </BorderPane>
+      </children>
+    </StackPane>
+  </children>
+  <stylesheets>
+    <URL value="@Main.css" />
+  </stylesheets>
+</AnchorPane>

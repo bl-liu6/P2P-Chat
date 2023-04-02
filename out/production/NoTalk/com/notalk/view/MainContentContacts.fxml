@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.notalk.view.MainContentContactsController">
+  <children>
+    <BorderPane prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+        <StackPane prefHeight="150.0" prefWidth="200.0">
+          <children>
+            <BorderPane id="ContactsNone" fx:id="contactsNone" prefHeight="699.0" prefWidth="594.0" visible="true">
+              <center>
+                <Pane id="contacts-right-main" maxHeight="213.0" maxWidth="224.0" minHeight="213.0" minWidth="224.0" prefHeight="213.0" prefWidth="224.0" />
+              </center>
+            </BorderPane>
+            <BorderPane id="contactsaddUser" fx:id="contactsAddUserSearch" prefHeight="200.0" prefWidth="200.0" visible="false">
+              <left>
+                <VBox prefHeight="192.0" prefWidth="330.0">
+                  <children>
+                    <TextField fx:id="addUserSid" maxHeight="40.0" maxWidth="330.0" minHeight="40.0" minWidth="330.0" prefColumnCount="12" prefHeight="40.0" prefWidth="330.0" promptText="请输入账号" text="" />
+                    <BorderPane fx:id="searchResultBorderPane" maxHeight="80.0" minHeight="80.0" prefHeight="80.0" prefWidth="330.0" visible="false">
+                      <left>
+                        <Label fx:id="searchResultNameLabel" text="" visible="false" BorderPane.alignment="CENTER_LEFT">
+                          <BorderPane.margin>
+                            <Insets left="30.0" />
+                          </BorderPane.margin>
+                        </Label>
+                      </left>
+                      <right>
+                        <Button id="se" fx:id="searchLookBtn" mnemonicParsing="false" style="-fx-background-color:#17ACE2;" text="查看" textFill="WHITE" visible="false" BorderPane.alignment="CENTER_RIGHT">
+                          <stylesheets>
+                            <URL value="@Main.css" />
+                          </stylesheets>
+                          <BorderPane.margin>
+                            <Insets right="20.0" />
+                          </BorderPane.margin>
+                        </Button>
+                      </right>
+                      <VBox.margin>
+                        <Insets top="20.0" />
+                      </VBox.margin>
+                    </BorderPane>
+                  </children>
+                  <BorderPane.margin>
+                    <Insets left="50.0" top="20.0" />
+                  </BorderPane.margin>
+                </VBox>
+              </left>
+              <top>
+                <HBox alignment="CENTER_LEFT" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="650.0">
+                  <children>
+                    <Pane fx:id="returnToNone" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="36.0" prefHeight="50.0" prefWidth="36.0">
+                      <children>
+                        <Line endX="12.0" layoutX="10.0" layoutY="14.0" startX="0.0" startY="12.0" strokeWidth="2.0" />
+                        <Line endX="12.0" endY="12.0" layoutX="10.0" layoutY="26.0" startX="0.0" strokeWidth="2.0" />
+                      </children>
+                      <HBox.margin>
+                        <Insets left="20.0" />
+                      </HBox.margin>
+                    </Pane>
+                    <Label prefWidth="266.0" styleClass="label-talk-right-name" text="添加好友" />
+                  </children>
+                </HBox>
+              </top>
+            </BorderPane>
+            <BorderPane fx:id="contactsUserInfo" prefHeight="200.0" prefWidth="200.0" styleClass="contacts-search-res" visible="false">
+              <center>
+                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                  <center>
+                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                      <children>
+                        <Label id="user" fx:id="userNickName" styleClass="set-info-name-signature-label" text="Snoopy" textFill="WHITE">
+                          <VBox.margin>
+                            <Insets top="10.0" fx:id="x3" />
+                          </VBox.margin>
+                        </Label>
+                        <Label fx:id="userSid" styleClass="set-info-name-sid-label" text="2016501308" textFill="WHITE" VBox.margin="$x3" />
+                        <Label fx:id="userSignature" styleClass="set-info-name-signature-label" text="We Don't Talk Anymore" textFill="WHITE">
+                          <VBox.margin>
+                            <Insets top="30.0" fx:id="x2" />
+                          </VBox.margin>
+                        </Label>
+                        <Pane id="EditinfoBtn" fx:id="addThisUserBtn" maxWidth="300.0" minWidth="300.0" prefHeight="38.0" prefWidth="300.0" VBox.margin="$x2">
+                          <children>
+                            <Label fx:id="addThisUserLabel" alignment="TOP_CENTER" layoutX="110.0" layoutY="6.0" styleClass="set-info-name-signature-label" text="加为好友" textFill="WHITE" />
+                          </children>
+                        </Pane>
+                      </children>
+                    </VBox>
+                  </center>
+                  <top>
+                    <Pane id="SetInfoPaneHead" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0" BorderPane.alignment="TOP_CENTER">
+                      <BorderPane.margin>
+                        <Insets top="40.0" />
+                      </BorderPane.margin>
+                    </Pane>
+                  </top>
+                </BorderPane>
+              </center>
+              <top>
+                <HBox alignment="CENTER_LEFT" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="650.0">
+                  <children>
+                    <Pane fx:id="returnToSearch" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="36.0" prefHeight="50.0" prefWidth="36.0">
+                      <children>
+                        <Line endX="12.0" layoutX="10.0" layoutY="14.0" startX="0.0" startY="12.0" stroke="WHITE" strokeWidth="2.0" />
+                        <Line endX="12.0" endY="12.0" layoutX="10.0" layoutY="26.0" startX="0.0" stroke="WHITE" strokeWidth="2.0" />
+                      </children>
+                      <HBox.margin>
+                        <Insets left="20.0" />
+                      </HBox.margin>
+                    </Pane>
+                    <Label prefWidth="266.0" styleClass="label-talk-right-name" text="返回" textFill="WHITE" />
+                  </children>
+                </HBox>
+              </top>
+            </BorderPane>
+          </children>
+        </StackPane>
+      </center>
+      <left>
+        <VBox fx:id="ContactsList" prefHeight="700.0" prefWidth="350.0" styleClass="talk-left-pane, contacts-scroll-pane">
+          <children>
+            <HBox fx:id="TalkSearchPane" prefHeight="50.0" prefWidth="200.0">
+              <children>
+                <Pane fx:id="talkSearch" disable="false" prefHeight="50.0" prefWidth="50.0" visible="true" />
+                <TextField minHeight="34.0" prefHeight="34.0" prefWidth="266.0" promptText="搜索">
+                  <HBox.margin>
+                    <Insets bottom="8.0" top="8.0" />
+                  </HBox.margin>
+                </TextField>
+              </children>
+              <padding>
+                <Insets fx:id="x1" />
+              </padding>
+            </HBox>
+            <HBox fx:id="addPeople" alignment="CENTER_LEFT" maxHeight="60.0" minHeight="60.0" prefHeight="60.0" prefWidth="200.0" styleClass="talk-pane">
+              <children>
+                <Pane id="contacts-add-img" maxHeight="60.0" maxWidth="60.0" minHeight="60.0" minWidth="60.0" prefHeight="60.0" prefWidth="60.0" />
+                <Label styleClass="contacts-add-label" text="添加">
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </Label>
+              </children>
+            </HBox>
+            <ScrollPane fx:id="scrollPane" prefHeight="-1.0" prefWidth="-1.0" styleClass="contacts-scroll-pane">
+              <content>
+                <VBox prefHeight="575.0" prefWidth="349.0" />
+              </content>
+              <stylesheets>
+                <URL value="@Main.css" />
+              </stylesheets>
+            </ScrollPane>
+          </children>
+          <stylesheets>
+            <URL value="@Main.css" />
+          </stylesheets>
+        </VBox>
+      </left>
+    </BorderPane>
+  </children>
+  <stylesheets>
+    <URL value="@Main.css" />
+  </stylesheets>
+</AnchorPane>
