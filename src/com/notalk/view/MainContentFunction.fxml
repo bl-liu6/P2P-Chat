@@ -30,7 +30,7 @@
         </FlowPane>
       </center>
       <top>
-        <Label prefHeight="54.0" prefWidth="111.0" text="其他服务">
+        <Label prefHeight="54.0" prefWidth="111.0" text="other service">
           <font>
             <Font size="21.0" />
           </font>
