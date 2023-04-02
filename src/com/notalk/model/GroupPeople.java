@@ -3,7 +3,7 @@ package com.notalk.model;
 import java.util.List;
 
 /*
-*  联系人类
+*  group people
 * */
 public class GroupPeople {
 
