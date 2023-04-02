@@ -78,43 +78,35 @@ public class MainContentContactsController {
 
     @FXML private Pane returnToNone;
 
-    /**
-    *
-    * 初始化并添加联系人
-    *
-    * */
+
     @FXML
     public void addPeople(){
 
         try {
 
-            //获取联系人信息
             String friendsList = db.getFriendsList(MainApp.Mysid);
             List<GroupPeople> groupPeopleList = gson.fromJson(friendsList, new TypeToken<List<GroupPeople>>() {}.getType());
 //            System.out.println(gson.toJson(groupPeople));
             VBox peoplelistvBox = new VBox();
             for(int j = 0;j < groupPeopleList.size(); j++){
                 GroupPeople groupPeople =groupPeopleList.get(j);
-                /*先添加分组列表，每一组为一个TitledPane*/
                 TitledPane titledPane = new TitledPane();
                 titledPane.setText(groupPeople.getGroup_name().get(0));
                 titledPane.setStyle("-fx-font-size: 18px");
-                 /*添加联系人*/
                 VBox peopleSetVbox = new VBox();
                 peopleSetVbox.setStyle("-fx-background-color: #EEEFF3");
 
-                /*每个联系人一个peopleBorderPane*/
                 for(int i = 0;i < groupPeople.getFriend_list().size();i++){
                     GroupPeople.FriendListBean friendListBean =  groupPeople.getFriend_list().get(i);
                     BorderPane peopleBorderPane =  new BorderPane();
                     peopleBorderPane.getStyleClass().addAll("people-BorderPane");
 
-                    /*联系人右侧昵称和最后发言BorderPane容器*/
+
                     BorderPane peopleBorderPaneRight =  new BorderPane();
                     peopleBorderPaneRight.getStyleClass().addAll("people-BorderPane-Right","contacts-list-border");
 //                  peopleBorderPaneRight.getStyleClass().addAll("contacts-list-border");
 
-                    //头像啊~~
+           
                     Pane headPane = new Pane();
                     headPane.getStyleClass().addAll("people-headPane");
                     headPane.setPadding(new Insets(0,20,0,0));
@@ -128,15 +120,15 @@ public class MainContentContactsController {
                     circle.setFill(imagePattern);
                     headPane.getChildren().addAll(circle);
 
-                    //昵称
+         
                     Label nickName = new Label();
                     nickName.setId("nickName");
                     nickName.getStyleClass().addAll("label-talk-view");
-                    //账号标签 隐藏
+    
                     Label friendSid = new Label();
                     friendSid.setId("friendSid");
                     friendSid.setVisible(false);
-                    //最后发言
+               
                     Label lastWords = new Label();
                     lastWords.getStyleClass().addAll("label-talk-view-content");
 
@@ -154,7 +146,7 @@ public class MainContentContactsController {
                     peopleBorderPane.setRight(peopleBorderPaneRight);
                     peopleSetVbox.getChildren().addAll(peopleBorderPane);
 
-                    /*点击联系人事件*/
+           
                     peopleBorderPane.setOnMouseClicked(new EventHandler <MouseEvent>() {
                         @Override
                         public void handle(MouseEvent event) {
@@ -194,23 +186,21 @@ public class MainContentContactsController {
         this.mainContentTalkController = mainContentTalkController;
     }
 
-    /**
-    * 切换到消息界面 且对话框内加载相应数据
-    * */
+
     private void switchToTalk(BorderPane peopleBorderPane){
         rootLayoutController.clickMsg();
         HashMap<String,String> infoMap = new HashMap<>();
-        //获取姓名
+  
         Label nickNameLabel = (Label)peopleBorderPane.lookup("#nickName");
         String nickNameString = nickNameLabel.getText();
         infoMap.put("name",nickNameString);
-        //获取账号
+
         Label friendSidLabel = (Label)peopleBorderPane.lookup("#friendSid");
         String friendSidString = friendSidLabel.getText();
         infoMap.put("sid",friendSidString);
         System.out.println("name:"+nickNameString+" sid:"+friendSidString);
 
-        //获取聊天记录
+
         try {
             String msgRecord = db.getMsgRecord(MainApp.Mysid,Integer.parseInt(friendSidString));
 //            System.out.println(msgRecord);
@@ -224,12 +214,10 @@ public class MainContentContactsController {
 
     @FXML
     private void initialize(){
-        /*初始化联系人列表*/
+
         this.addPeople();
         System.out.println("contacts list load ok");
-        /*添加监听事件 监听任务的选择*/
-
-        /*点击添加联系人事件*/
+    
         addPeople.setOnMouseClicked(new EventHandler <MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -239,7 +227,6 @@ public class MainContentContactsController {
         });
 
 
-        //添加好友账号查询监听回车
         this.addUserSid.setOnKeyReleased(new EventHandler<KeyEvent>(){
             public void handle(KeyEvent event) {
                 if(event.getCode()== KeyCode.ENTER){
@@ -251,7 +238,7 @@ public class MainContentContactsController {
                             searchResultBorderPane.setVisible(true);
                             searchResultNameLabel.setVisible(true);
                             searchLookBtn.setVisible(false);
-                            searchResultNameLabel.setText("没有找到符合搜索条件的账户");
+                            searchResultNameLabel.setText("Cannot find any account that matches the search condition");
                         }else{
                             String nickName = resultSet.getString("nickname");
                             int sex = resultSet.getInt("sex");
@@ -260,7 +247,6 @@ public class MainContentContactsController {
                             searchUserInfo.put("nickname",nickName);
                             searchUserInfo.put("sex",Integer.toString(sex));
                             searchUserInfo.put("signature",signature);
-                            // 显示按钮
                             searchResultBorderPane.setVisible(true);
                             searchResultNameLabel.setVisible(true);
                             searchLookBtn.setVisible(true);
@@ -273,7 +259,7 @@ public class MainContentContactsController {
             }
         });
 
-        //查看详细信息界面
+
         this.searchLookBtn.setOnMouseClicked(new EventHandler <MouseEvent>(){
             public void handle(MouseEvent event) {
                 contactsNone.setVisible(false);
@@ -287,11 +273,11 @@ public class MainContentContactsController {
                     String friendListString = db.getFriendsSidList(MainApp.Mysid);
                     List<String> friendSidList = gson.fromJson(friendListString,List.class);
                     if(friendSidList.contains(searchUserInfo.get("sid"))) {
-                        addThisUserLabel.setText("已是好友");
+                        addThisUserLabel.setText("Already a friend");
                     }else if(Integer.parseInt(searchUserInfo.get("sid"))==MainApp.Mysid){
-                        addThisUserLabel.setText("不可添加");
+                        addThisUserLabel.setText("Unable to add");
                     }else{
-                        addThisUserLabel.setText("加为好友");
+                        addThisUserLabel.setText("Add friend");
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -300,17 +286,15 @@ public class MainContentContactsController {
             }
         });
 
-        //加好友！！！！请求
         this.addThisUserLabel.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if(addThisUserLabel.getText().equals("加为好友")){
-                    rootLayoutController.sendMsg("addUser",Integer.toString(MainApp.Mysid),searchUserInfo.get("sid"),"加你为好友");
+                if(addThisUserLabel.getText().equals("Add friend")){
+                    rootLayoutController.sendMsg("addUser",Integer.toString(MainApp.Mysid),searchUserInfo.get("sid"),"Add you as friend");
                 }
             }
         });
 
-        //返回至none按钮监听
         this.returnToNone.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -320,7 +304,7 @@ public class MainContentContactsController {
             }
         });
 
-        //返回至search按钮监听
+
         this.returnToSearch.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
