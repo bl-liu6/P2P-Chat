@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="700.0" prefWidth="650.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.notalk.view.MinorContentSettingController">
+  <children>
+    <BorderPane fx:id="AccountPane" prefHeight="700.0" prefWidth="650.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+        <VBox prefHeight="200.0" prefWidth="100.0">
+          <children>
+            <BorderPane maxHeight="80.0" minHeight="70.0" prefHeight="70.0" prefWidth="200.0" styleClass="set-option-label-border">
+              <bottom>
+                <Label styleClass="set-label-detail" text="设置个性化主题" />
+              </bottom>
+              <padding>
+                <Insets bottom="12.0" top="12.0" />
+              </padding>
+              <top>
+                <Label styleClass="set-label-name" text="主题背景">
+                  <BorderPane.margin>
+                    <Insets />
+                  </BorderPane.margin>
+                </Label>
+              </top>
+            </BorderPane>
+          </children>
+          <BorderPane.margin>
+            <Insets left="35.0" />
+          </BorderPane.margin>
+        </VBox>
+      </center>
+      <top>
+        <HBox alignment="CENTER_LEFT" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="369.0">
+          <children>
+            <Pane maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="36.0" prefHeight="50.0" prefWidth="36.0">
+              <children>
+                <Line endX="12.0" layoutX="10.0" layoutY="14.0" startX="0.0" startY="12.0" strokeWidth="2.0" />
+                <Line endX="12.0" endY="12.0" layoutX="10.0" layoutY="26.0" startX="0.0" strokeWidth="2.0" />
+              </children>
+              <HBox.margin>
+                <Insets left="20.0" />
+              </HBox.margin>
+            </Pane>
+            <Label prefWidth="266.0" styleClass="label-talk-right-name" text="账号管理" />
+          </children>
+        </HBox>
+      </top>
+    </BorderPane>
+    <BorderPane id="SetInfoPane" fx:id="InfoPane" prefHeight="700.0" prefWidth="650.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+        <BorderPane prefHeight="200.0" prefWidth="200.0">
+          <center>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+              <children>
+                <Label styleClass="set-info-name-signature-label" text="Snoopy" textFill="WHITE">
+                  <VBox.margin>
+                    <Insets top="10.0" fx:id="x1" />
+                  </VBox.margin>
+                </Label>
+                <Label styleClass="set-info-name-sid-label" text="2016501308" textFill="WHITE" VBox.margin="$x1" />
+                <Label styleClass="set-info-name-signature-label" text="We Don't Talk Anymore" textFill="WHITE">
+                  <VBox.margin>
+                    <Insets top="30.0" fx:id="x2" />
+                  </VBox.margin>
+                </Label>
+                <Pane id="EditinfoBtn" maxWidth="300.0" minWidth="300.0" prefHeight="38.0" prefWidth="300.0" VBox.margin="$x2">
+                  <children>
+                    <Label alignment="TOP_CENTER" layoutX="110.0" layoutY="6.0" styleClass="set-info-name-signature-label" text="编辑资料" textFill="WHITE" />
+                  </children>
+                </Pane>
+              </children>
+            </VBox>
+          </center>
+          <top>
+            <Pane id="SetInfoPaneHead" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0" BorderPane.alignment="TOP_CENTER">
+              <BorderPane.margin>
+                <Insets top="40.0" />
+              </BorderPane.margin>
+            </Pane>
+          </top>
+        </BorderPane>
+      </center>
+      <top>
+        <HBox alignment="CENTER_LEFT" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="650.0">
+          <children>
+            <Pane maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="36.0" prefHeight="50.0" prefWidth="36.0">
+              <children>
+                <Line endX="12.0" layoutX="10.0" layoutY="14.0" startX="0.0" startY="12.0" stroke="WHITE" strokeWidth="2.0" />
+                <Line endX="12.0" endY="12.0" layoutX="10.0" layoutY="26.0" startX="0.0" stroke="WHITE" strokeWidth="2.0" />
+              </children>
+              <HBox.margin>
+                <Insets left="20.0" />
+              </HBox.margin>
+            </Pane>
+            <Label prefWidth="266.0" styleClass="label-talk-right-name" text="我的资料" textFill="WHITE" />
+          </children>
+        </HBox>
+      </top>
+    </BorderPane>
+    <BorderPane fx:id="MsgPane" prefHeight="700.0" prefWidth="650.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+        <VBox prefHeight="200.0" prefWidth="100.0">
+          <children>
+            <BorderPane maxHeight="80.0" minHeight="70.0" prefHeight="70.0" prefWidth="200.0" styleClass="set-option-label-border">
+              <bottom>
+                <RadioButton mnemonicParsing="false" styleClass="set-label-detail" text="打开声音" />
+              </bottom>
+              <padding>
+                <Insets bottom="12.0" top="12.0" />
+              </padding>
+              <top>
+                <Label styleClass="set-label-name" text="声音提醒">
+                  <BorderPane.margin>
+                    <Insets />
+                  </BorderPane.margin>
+                </Label>
+              </top>
+            </BorderPane>
+          </children>
+          <BorderPane.margin>
+            <Insets left="35.0" />
+          </BorderPane.margin>
+        </VBox>
+      </center>
+      <top>
+        <HBox alignment="CENTER_LEFT" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="650.0">
+          <children>
+            <Pane maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="36.0" prefHeight="50.0" prefWidth="36.0">
+              <children>
+                <Line endX="12.0" layoutX="10.0" layoutY="14.0" startX="0.0" startY="12.0" strokeWidth="2.0" />
+                <Line endX="12.0" endY="12.0" layoutX="10.0" layoutY="26.0" startX="0.0" strokeWidth="2.0" />
+              </children>
+              <HBox.margin>
+                <Insets left="20.0" />
+              </HBox.margin>
+            </Pane>
+            <Label prefWidth="266.0" styleClass="label-talk-right-name" text="消息提醒" />
+          </children>
+        </HBox>
+      </top>
+    </BorderPane>
+    <BorderPane fx:id="ThemePane" prefHeight="700.0" prefWidth="650.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+        <VBox prefHeight="200.0" prefWidth="100.0">
+          <children>
+            <BorderPane maxHeight="80.0" minHeight="70.0" prefHeight="70.0" prefWidth="200.0" styleClass="set-option-label-border">
+              <bottom>
+                <Label styleClass="set-label-detail" text="设置个性化主题" />
+              </bottom>
+              <padding>
+                <Insets bottom="12.0" top="12.0" />
+              </padding>
+              <top>
+                <Label styleClass="set-label-name" text="主题背景">
+                  <BorderPane.margin>
+                    <Insets />
+                  </BorderPane.margin>
+                </Label>
+              </top>
+            </BorderPane>
+          </children>
+          <BorderPane.margin>
+            <Insets left="35.0" />
+          </BorderPane.margin>
+        </VBox>
+      </center>
+      <top>
+        <HBox alignment="CENTER_LEFT" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="650.0">
+          <children>
+            <Pane maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="36.0" prefHeight="50.0" prefWidth="36.0">
+              <children>
+                <Line endX="12.0" layoutX="10.0" layoutY="14.0" startX="0.0" startY="12.0" strokeWidth="2.0" />
+                <Line endX="12.0" endY="12.0" layoutX="10.0" layoutY="26.0" startX="0.0" strokeWidth="2.0" />
+              </children>
+              <HBox.margin>
+                <Insets left="20.0" />
+              </HBox.margin>
+            </Pane>
+            <Label prefWidth="266.0" styleClass="label-talk-right-name" text="主题与表情" />
+          </children>
+        </HBox>
+      </top>
+    </BorderPane>
+    <BorderPane fx:id="PrivacyPane" prefHeight="700.0" prefWidth="650.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" style="">
+          <children>
+            <BorderPane maxHeight="80.0" minHeight="70.0" prefHeight="70.0" prefWidth="200.0" style="" styleClass="set-option-label-border">
+              <bottom>
+                <Label styleClass="set-label-detail" text="清空本地聊天记录" />
+              </bottom>
+              <padding>
+                <Insets bottom="12.0" top="12.0" />
+              </padding>
+              <top>
+                <Label styleClass="set-label-name" text="清空聊天记录">
+                  <BorderPane.margin>
+                    <Insets />
+                  </BorderPane.margin>
+                </Label>
+              </top>
+            </BorderPane>
+          </children>
+          <BorderPane.margin>
+            <Insets left="35.0" />
+          </BorderPane.margin>
+        </VBox>
+      </center>
+      <top>
+        <HBox alignment="CENTER_LEFT" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="650.0">
+          <children>
+            <Pane maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="36.0" prefHeight="50.0" prefWidth="36.0">
+              <children>
+                <Line endX="12.0" layoutX="10.0" layoutY="14.0" startX="0.0" startY="12.0" strokeWidth="2.0" />
+                <Line endX="12.0" endY="12.0" layoutX="10.0" layoutY="26.0" startX="0.0" strokeWidth="2.0" />
+              </children>
+              <HBox.margin>
+                <Insets left="20.0" />
+              </HBox.margin>
+            </Pane>
+            <Label prefWidth="266.0" styleClass="label-talk-right-name" text="隐私安全" />
+          </children>
+        </HBox>
+      </top>
+    </BorderPane>
+    <BorderPane fx:id="AssistPane" prefHeight="700.0" prefWidth="650.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+        <VBox prefHeight="200.0" prefWidth="100.0">
+          <children>
+            <BorderPane maxHeight="80.0" minHeight="70.0" prefHeight="70.0" prefWidth="200.0" styleClass="set-option-label-border">
+              <bottom>
+                <Label styleClass="set-label-detail" text="设置个性化主题" />
+              </bottom>
+              <padding>
+                <Insets bottom="12.0" top="12.0" />
+              </padding>
+              <top>
+                <Label styleClass="set-label-name" text="主题背景">
+                  <BorderPane.margin>
+                    <Insets />
+                  </BorderPane.margin>
+                </Label>
+              </top>
+            </BorderPane>
+          </children>
+          <BorderPane.margin>
+            <Insets left="35.0" />
+          </BorderPane.margin>
+        </VBox>
+      </center>
+      <top>
+        <HBox alignment="CENTER_LEFT" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="650.0">
+          <children>
+            <Pane maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="36.0" prefHeight="50.0" prefWidth="36.0">
+              <children>
+                <Line endX="12.0" layoutX="10.0" layoutY="14.0" startX="0.0" startY="12.0" strokeWidth="2.0" />
+                <Line endX="12.0" endY="12.0" layoutX="10.0" layoutY="26.0" startX="0.0" strokeWidth="2.0" />
+              </children>
+              <HBox.margin>
+                <Insets left="20.0" />
+              </HBox.margin>
+            </Pane>
+            <Label prefWidth="266.0" styleClass="label-talk-right-name" text="辅助功能" />
+          </children>
+        </HBox>
+      </top>
+    </BorderPane>
+    <BorderPane fx:id="AboutPane" prefHeight="700.0" prefWidth="650.0" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <bottom>
+        <VBox prefHeight="60.0" prefWidth="100.0" BorderPane.alignment="TOP_CENTER">
+          <children>
+            <HBox alignment="TOP_CENTER" prefHeight="30.0" prefWidth="-1.0" spacing="20.0">
+              <children>
+                <Label id="about-feedback" text="Bug反馈" />
+                <Label id="about-feedback" text="联系作者:1004168799(QQ)" />
+              </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="30.0" prefWidth="-1.0">
+              <children>
+                <Label id="about-declare" text="All Rights Reserved" />
+              </children>
+            </HBox>
+          </children>
+        </VBox>
+      </bottom>
+      <center>
+        <VBox alignment="TOP_CENTER" maxWidth="300.0" minWidth="300.0" prefHeight="200.0" prefWidth="300.0" BorderPane.alignment="TOP_CENTER">
+          <children>
+            <Pane id="about-logo" maxHeight="150.0" maxWidth="150.0" minHeight="150.0" minWidth="150.0" prefHeight="150.0" prefWidth="150.0" />
+            <Label id="about-name" text="NoTalk">
+              <VBox.margin>
+                <Insets top="10.0" fx:id="x1" />
+              </VBox.margin>
+            </Label>
+            <Label id="about-version" text="Version 0.0.0.0.001">
+              <VBox.margin>
+                <Insets top="5.0" />
+              </VBox.margin>
+            </Label>
+            <Label id="about-miss-you" text="We Don't Talk Anymore">
+              <VBox.margin>
+                <Insets top="50.0" />
+              </VBox.margin>
+            </Label>
+            <Label id="about-miss-you" text="Like We Used To Do">
+              <VBox.margin>
+                <Insets top="10.0" fx:id="x1" />
+              </VBox.margin>
+            </Label>
+          </children>
+        </VBox>
+      </center>
+      <top>
+        <HBox alignment="CENTER_LEFT" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="650.0">
+          <children>
+            <Pane maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="36.0" prefHeight="50.0" prefWidth="36.0">
+              <children>
+                <Line endX="12.0" layoutX="10.0" layoutY="14.0" startX="0.0" startY="12.0" strokeWidth="2.0" />
+                <Line endX="12.0" endY="12.0" layoutX="10.0" layoutY="26.0" startX="0.0" strokeWidth="2.0" />
+              </children>
+              <HBox.margin>
+                <Insets left="20.0" />
+              </HBox.margin>
+            </Pane>
+            <Label prefWidth="266.0" styleClass="label-talk-right-name" text="关于" />
+          </children>
+        </HBox>
+      </top>
+    </BorderPane>
+  </children>
+  <stylesheets>
+    <URL value="@Main.css" />
+  </stylesheets>
+</AnchorPane>

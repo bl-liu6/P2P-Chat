@@ -1,0 +1,461 @@
+#loginAnchor{
+    -fx-background-image: url("../../../resources/images/Themes/ColdNight/bg.png");
+    /*-fx-fill: url("./../../../../resources/images/Themes/ColdNight/bg.png");*/
+    -fx-background-size: cover ;
+    /*-fx-background-color: red;*/
+}
+
+#loginButton{
+    /*-fx-background-color: red;*/
+    /*-fx-fill: url("../../../../resources/images/Themes/ColdNight/bg.png");*/
+    /*-fx-fill:red;*/
+    /*-fx-fill-image: url("../../../../resources/images/head/AppDefault.png");*/
+}
+
+#loginheadImg{
+    /*-fx-fill: red;*/
+    /*-fx-fill: image("../../../../resources/images/head/1.png");*/
+    -fx-highlight-fill: white;
+}
+
+#RootLayoutLeft{
+    -fx-background-color: #12B7F5;
+}
+#RootLayoutLeftHead{
+    -fx-background-image: url("../../../resources/images/Menu/tempHead.png");
+    -fx-background-size: cover;
+}
+#RootLayoutLeftButtonMsg{
+    -fx-background-image: url("../../../resources/images/Menu/messageSelected.png");
+    -fx-background-size: cover;
+}
+
+#RootLayoutLeftButtonPeople{
+    -fx-background-image: url("../../../resources/images/Menu/people.png");
+    -fx-background-size: cover;
+}
+#RootLayoutLeftButtonFunction{
+    -fx-background-image: url("../../../resources/images/Menu/function.png");
+    -fx-background-size: cover;
+}
+#RootLayoutLeftButtonSetting{
+    -fx-background-image: url("../../../resources/images/Menu/setting.png");
+    -fx-background-size: cover;
+}
+#TalkSearchPane{
+    -fx-background-color: #F8F9FA;
+}
+#talkSearch{
+    /*-fx-background-color: red;*/
+    -fx-background-image: url("../../../resources/images/Talk/search.png");
+    -fx-background-size: cover;
+}
+
+.talk-sysMsg{
+    -fx-background-image: url("../../../resources/images/Talk/systemMsg.png");
+    -fx-background-size: cover;
+}
+
+.talk-left-head-img{
+    -fx-image: url("../../../resources/images/Menu/tempHead.png");
+}
+
+/*------------------------------------登录界面-------------------------------------*/
+/*默认头像*/
+.login-head-pane{
+    -fx-background-image: url("../../../resources/images/Head/logo.png");
+    -fx-background-size: cover;
+}
+/*遮罩层*/
+.cover-pane{
+    -fx-background-color: rgba(50,50,50,0.8);
+}
+/*遮罩层消息框*/
+.cover-content{
+    -fx-background-color: white;
+}
+/*按钮*/
+#login-msg-btn{
+    -fx-background-color: #18B4ED;
+}
+/*遮罩层按钮*/
+/*遮罩层文本*/
+.login-msg-text{
+    -fx-font-size: 17px;
+}
+
+
+/*------------------------------------登录界面-------------------------------------*/
+/*------------------------------------聊天界面-------------------------------------*/
+/*聊天界面左板块*/
+.talk-left-pane{
+    -fx-background-color: #F8F9FA;
+}
+/*聊天界面右板块*/
+.talk-right-pane{
+    -fx-background-color: #E9EEF4;
+}
+/*输入框*/
+.talk-content{
+    -fx-background-color: white;
+}
+/*聊天输入框上的工具栏*/
+.talk-tools{
+    -fx-border-width: 1 0 0 0;
+    -fx-border-color: #D1D6DB;
+}
+/*发送按钮*/
+#talkSend{
+    -fx-background-color: #18B4ED;
+}
+/*输入窗口工具*/
+#face-tools{
+    -fx-background-image: url("../../../resources/images/Talktools/face.png");
+    -fx-background-size: cover;
+}
+#pic-tools{
+    -fx-background-image: url("../../../resources/images/Talktools/pic.png");
+    -fx-background-size: cover;
+}
+#record-tools{
+    -fx-background-image: url("../../../resources/images/Talktools/record.png");
+    -fx-background-size: cover;
+}
+#voice-tools{
+    -fx-background-image: url("../../../resources/images/Talktools/voice.png");
+    -fx-background-size: cover;
+}
+#file-tools{
+    -fx-background-image: url("../../../resources/images/Talktools/file.png");
+    -fx-background-size: cover;
+}
+/*输入文本框*/
+#talk-content-text-area{
+    -fx-border-width: 2 2 2 2;
+    -fx-border-style: solid;
+    -fx-border-color: white;
+    -fx-font-size: 16px;
+}
+/*聊天界面昵称*/
+.label-talk-view {
+    -fx-font-size: 13pt;
+    -fx-opacity:0.9;
+}
+/*聊天界面列表每条记录*/
+.talk-people-BorderPane{
+    -fx-background-color: #F8F9FA;
+    -fx-min-height: 80;
+    -fx-pref-height: 80;
+    -fx-max-height: 80;
+    /*-fx-background-color: green*/
+}
+.talk-people-BorderPane :hover{
+    -fx-background-color: #F1F5FA;
+}
+/*聊天界面列表每条记录BorderPane中的右侧BoderPane*/
+.talk-people-BorderPane-Right {
+    -fx-min-height: 80;
+    -fx-pref-height: 80;
+    -fx-max-height: 80;
+    -fx-pref-width: 250;
+    -fx-padding: 18 0 20 0;
+    /*-fx-background-color: red;*/
+}
+/*聊天界面最后一条记时间*/
+.label-talk-view-time {
+    -fx-font-size: 12pt;
+    -fx-opacity:0.5;
+}
+/*聊天界面最后一条聊天记录*/
+.label-talk-view-content {
+    -fx-font-size: 11pt;
+    -fx-opacity:0.5;
+}
+
+
+.label-talk-back{
+    -fx-font-size: 40pt;
+}
+/*聊天界面右侧用户昵称*/
+.label-talk-right-name{
+    -fx-font-size: 14pt;
+    -fx-opacity:0.9;
+}
+/*列表上下分割线*/
+.talk-pane{
+    -fx-border-width: 0.05 0 0.05 0;
+    -fx-border-color: gray;
+}
+
+.talk-content-right-pane{
+    /*-fx-background-color: red;*/
+    -fx-background-image: url("../../../resources/images/Operate/info.png");
+    -fx-background-size: cover;
+}
+
+
+.talk-sendmsg-label{
+    -fx-arc-height: 5px;
+    -fx-arc-width: 5px;
+    -fx-padding: 10 8 10 8;
+    -fx-background-color: #12B7F5;
+    -fx-fill: white;
+}
+.talk-recmsg-label{
+    -fx-arc-height: 5px;
+    -fx-arc-width: 5px;
+    -fx-padding: 10 8 10 8;
+    -fx-background-color: white;
+    -fx-fill: black;
+}
+/*------------------------------------聊天界面-------------------------------------*/
+
+
+/*------------------------------------联系人界面-------------------------------------*/
+
+/*联系人列表右侧显示*/
+#contacts-right-main{
+    -fx-background-image: url("../../../resources/images/Others/msg.png");
+    -fx-background-size: cover;
+}
+.contacts-list{
+    -fx-background-color:#F8F9FA;
+}
+.contacts-scroll-pane{
+    -fx-background-color:#F8F9FA;
+}
+
+/*联系人左侧折叠列表*/
+.contacts-main{
+    /*-fx-border-width: 5px;*/
+    -fx-background-color:yellow;
+    -fx-border-color:red;
+    -fx-progress-color: green;
+    /*-fx-color-label-visible: false;*/
+    -fx-background-color: blue;
+}
+#contacts-head{
+    -fx-image: url("../../../resources/images/Menu/tempHead.png");
+}
+/*联系人上下边框*/
+.contacts-list-border{
+    -fx-border-width: 0.2 0 0.2 0;
+    -fx-border-color: #D1D6DB;
+}
+
+/*每个联系人的BorderPane*/
+.people-BorderPane{
+    -fx-min-height: 60;
+    -fx-pref-height: 60;
+    -fx-max-height: 60;
+    /*-fx-background-color: green*/
+}
+/*联系人头像*/
+.people-headPane{
+    -fx-pref-height: 60;
+    -fx-min-height:60;
+    -fx-pref-width: 60;
+    /*-fx-background-color: blue;*/
+}
+/*联系人头像*/
+.people-headPane-talk{
+    -fx-pref-height: 40;
+    -fx-min-height:40;
+    -fx-pref-width: 40;
+    /*-fx-background-color: blue;*/
+}
+
+
+
+/*联系人BorderPane中的右侧BoderPane*/
+.people-BorderPane-Right {
+    -fx-min-height: 60;
+    -fx-pref-height: 60;
+    -fx-max-height: 60;
+    -fx-pref-width: 250;
+    -fx-padding: 8 0 8 0;
+    /*-fx-background-color: red;*/
+}
+
+/*联系人添加符号*/
+#contacts-add-img{
+    -fx-background-image: url("../../../resources/images/Contacts/add.png");
+    -fx-background-size: cover;
+}
+
+
+/*联系人添加标签*/
+.contacts-add-label{
+    -fx-font-size: 18px;
+}
+
+
+/*搜索结果展示*/
+.contacts-search-res{
+    -fx-background-image: url("../../../resources/images/Themes/ColdNight/bg.png");
+    -fx-background-size: cover;
+}
+/*------------------------------------联系人界面-------------------------------------*/
+
+/*------------------------------------功能界面-------------------------------------*/
+/*功能列表方块*/
+.function-list-pane{
+    /*-fx-background-color: red;*/
+    /*-fx-border-radius: 70px;*/
+    /*-fx-border-color: red;*/
+}
+#functionMsg{
+    -fx-background-image: url("../../../resources/images/Function/msg.png");
+    -fx-background-size: cover;
+}
+#functionCourse{
+    /*-fx-background-image: url("../../../resources/images/Function/course.png");*/
+    -fx-background-size: cover;
+}
+#functionScore{
+    /*-fx-background-image: url("../../../resources/images/Function/score.png");*/
+    -fx-background-size: cover;
+}
+#functionArrange{
+    /*-fx-background-image: url("../../../resources/images/Function/arrange.png");*/
+    -fx-background-size: cover;
+}
+#functionPayHistory{
+    /*-fx-background-image: url("../../../resources/images/Function/payhistory.png");*/
+    -fx-background-size: cover;
+}
+#functionRadio{
+    /*-fx-background-image: url("../../../resources/images/Function/radio.png");*/
+    -fx-background-size: cover;
+}
+#functionDoc{
+    /*-fx-background-image: url("../../../resources/images/Function/doc.png");*/
+    -fx-background-size: cover;
+}
+#functionShop{
+    /*-fx-background-image: url("../../../resources/images/Function/shop.png");*/
+    -fx-background-size: cover;
+}
+
+/*------------------------------------功能界面-------------------------------------*/
+
+/*------------------------------------设置界面-------------------------------------*/
+/*设置选项图标*/
+#SetAccount{
+    -fx-background-image: url("../../../resources/images/Setting/ColdNight/key.png");
+    -fx-background-size: cover;
+}
+#SetInfo{
+    -fx-background-image: url("../../../resources/images/Setting/ColdNight/man.png");
+    -fx-background-size: cover;
+}
+#SetMsg{
+    -fx-background-image: url("../../../resources/images/Setting/ColdNight/msg.png");
+    -fx-background-size: cover;
+}
+#SetTheme{
+    -fx-background-image: url("../../../resources/images/Setting/ColdNight/theme.png");
+    -fx-background-size: cover;
+}
+#SetPrivacy{
+    -fx-background-image: url("../../../resources/images/Setting/ColdNight/privacy.png");
+    -fx-background-size: cover;
+}
+#SetAssist{
+    -fx-background-image: url("../../../resources/images/Setting/ColdNight/set.png");
+    -fx-background-size: cover;
+}
+#SetAbout{
+    -fx-background-image: url("../../../resources/images/Setting/ColdNight/about.png");
+    -fx-background-size: cover;
+}
+
+/*设置界面选项名称*/
+.set-list-name{
+    -fx-font-size: 20px;
+    -fx-font-weight: lighter;
+}
+
+.set-option{
+    -fx-background-color: #F8F9FA;
+}
+.set-option:hover{
+    -fx-background-color: #F1F5FA;
+}
+
+/*------------------------------------设置界面-------------------------------------*/
+
+/*------------------------------------设置子界面-------------------------------------*/
+.set-label-name{
+    -fx-font-size:16px;
+    -fx-text-fill:black;
+}
+.set-label-detail{
+    -fx-font-size:14px;
+    -fx-text-fill: gray;
+}
+/*设置每个具体选项的上下边框*/
+.set-option-label-border{
+    -fx-border-width:0.05 0 0.05 0;
+    -fx-border-color:gray;
+}
+
+/*-------我的资料-----*/
+#SetInfoPane{
+    -fx-background-image: url("../../../resources/images/Themes/ColdNight/bg.png");
+    -fx-background-size: cover;
+}
+#SetInfoPaneHead{
+    -fx-background-image: url("../../../resources/images/Menu/tempHead.png");
+    -fx-background-size: cover;
+}
+#EditinfoBtn{
+    /*-fx-background-color: #5FC7F2;*/
+    -fx-border-width: 19;
+    -fx-border-radius: 20px;
+    -fx-border-color: #5FC7F2;
+}
+.set-info-name-signature-label{
+    -fx-font-size: 20px;
+}
+.set-info-name-sid-label{
+    -fx-font-size: 15px;
+    -fx-opacity: 0.7;
+}
+/*-------我的资料-----*/
+/*--------关于-------*/
+#about-logo{
+    -fx-background-image: url("../../../resources/images/About/logo.png");
+    -fx-background-size: cover;
+}
+#about-name{
+    -fx-font-size: 30px;
+}
+#about-version{
+    -fx-font-size: 15px;
+    -fx-text-fill: gray;
+    -fx-opacity: 0.7;
+}
+#about-feedback{
+    -fx-opacity: 0.8;
+}
+#about-miss-you{
+    -fx-font-weight: bold;
+    -fx-font-size: 22px;
+    -fx-text-fill: gray;
+    -fx-opacity: 0.2;
+}
+#about-declare{
+    -fx-font-size: 15px;
+    -fx-text-fill: gray;
+    -fx-opacity: 0.7;
+}
+/*--------关于-------*/
+
+/*------------------------------------设置子界面-------------------------------------*/
+
+.label{
+    -fx-font-family: "Microsoft YaHei UI";
+}
+
+

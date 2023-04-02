@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.net.URL?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.notalk.view.MainContentSettingController">
+  <children>
+    <BorderPane fx:id="SettingMain" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <left>
+        <VBox prefHeight="700.0" prefWidth="350.0" styleClass="talk-left-pane">
+          <children>
+            <HBox fx:id="Account" alignment="CENTER_LEFT" onMouseClicked="#clickAccount" prefHeight="60.0" prefWidth="200.0" styleClass="set-option">
+              <children>
+                <Pane id="SetAccount" prefHeight="60.0" prefWidth="60.0">
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </Pane>
+                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="账号管理" />
+              </children>
+            </HBox>
+            <HBox fx:id="Info" alignment="CENTER_LEFT" onMouseClicked="#clickInfo" prefHeight="60.0" prefWidth="200.0" styleClass="set-option">
+              <children>
+                <Pane id="SetInfo" prefHeight="60.0" prefWidth="60.0">
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </Pane>
+                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="我的资料" />
+              </children>
+            </HBox>
+            <HBox fx:id="Msg" alignment="CENTER_LEFT" onMouseClicked="#clickMsg" prefHeight="60.0" prefWidth="200.0" styleClass="set-option">
+              <children>
+                <Pane id="SetMsg" prefHeight="60.0" prefWidth="60.0">
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </Pane>
+                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="消息提醒" />
+              </children>
+            </HBox>
+            <HBox fx:id="Theme" alignment="CENTER_LEFT" onMouseClicked="#clickTheme" prefHeight="60.0" prefWidth="200.0" styleClass="set-option">
+              <children>
+                <Pane id="SetTheme" prefHeight="60.0" prefWidth="60.0">
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </Pane>
+                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="主题表情" />
+              </children>
+            </HBox>
+            <HBox fx:id="Privacy" alignment="CENTER_LEFT" onMouseClicked="#clickPrivacy" prefHeight="60.0" prefWidth="200.0" styleClass="set-option">
+              <children>
+                <Pane id="SetPrivacy" prefHeight="60.0" prefWidth="60.0">
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </Pane>
+                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="隐私安全" />
+              </children>
+            </HBox>
+            <HBox fx:id="Assist" alignment="CENTER_LEFT" onMouseClicked="#clickAssist" prefHeight="60.0" prefWidth="200.0" styleClass="set-option">
+              <children>
+                <Pane id="SetAssist" prefHeight="60.0" prefWidth="60.0">
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </Pane>
+                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="辅助功能" />
+              </children>
+            </HBox>
+            <HBox fx:id="About" alignment="CENTER_LEFT" onMouseClicked="#clickAbout" prefHeight="60.0" prefWidth="200.0" styleClass="set-option">
+              <children>
+                <Pane id="SetAbout" prefHeight="60.0" prefWidth="60.0">
+                  <HBox.margin>
+                    <Insets left="20.0" />
+                  </HBox.margin>
+                </Pane>
+                <Label prefHeight="46.0" prefWidth="147.0" styleClass="set-list-name" text="关于" />
+              </children>
+            </HBox>
+          </children>
+        </VBox>
+      </left>
+    </BorderPane>
+  </children>
+  <stylesheets>
+    <URL value="@Main.css" />
+  </stylesheets>
+</AnchorPane>
