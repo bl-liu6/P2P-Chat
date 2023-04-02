@@ -69,7 +69,7 @@ public class RootLayoutController {
 
     @FXML
     public void clickMsg(){
-        //同级其他俩图标变为空心，自己变为选中状态
+
         Msg.setStyle("-fx-background-image: url('/resources/images/Menu/messageSelected.png')");
         People.setStyle("-fx-background-image: url('/resources/images/Menu/people.png')");
         Function.setStyle("-fx-background-image: url('/resources/images/Menu/function.png')");
@@ -103,16 +103,10 @@ public class RootLayoutController {
         Setting.setStyle("-fx-background-image: url('/resources/images/Menu/settingSelecetd.png')");
         TalkMain.setCenter(MainContentSetting);
 
-        //初次点击设置界面 加载设置子页面
         if(!isLoadedMinorSetting)
             this.mainContentSettingController.loadSetting();
     }
 
-    /*
-    * 加载四个右侧布局界面
-    * 并初始界面设定为聊天界面
-    *
-    * */
     public void loadPane(){
         try{
             FXMLLoader talkLoader = new FXMLLoader();
@@ -141,7 +135,7 @@ public class RootLayoutController {
             mainContentSettingController.setMainApp(this);
 
 
-            //头像啊~~
+    
 //            Pane headPane = new Pane();
 //            headPane.getStyleClass().addAll("people-headPane");
             Circle circle = new Circle();
@@ -163,23 +157,16 @@ public class RootLayoutController {
         TalkMain.setCenter(MainContentTalk);
     }
 
-    /**
-    * 初始化聊天界面
-    * */
     public void initTalkInfo(HashMap<String,String> info){
         mainContentTalkController.loadInfo(info,"BOTH");
     }
 
-    /**
-    * 发送消息从Contact调用Talk控制器中的方法
-    * */
+
     public void sendMsg(String type,String fromsid,String tosid,String msgContent){
         mainContentTalkController.sendMsg( type, fromsid, tosid, msgContent);
     }
 
-    /**
-    * 处理服务器消息
-    * */
+
     public void handleMsg(String msgString) throws SQLException {
         mainContentTalkController.handleMsgFromServer(msgString);
     }
