@@ -81,10 +81,6 @@ public class MainContentSettingController {
     }
 
 
-    /*
-    *加载设置子页面
-    * 并设置默认值为空
-    * */
     public void loadSetting(){
         try{
             FXMLLoader loader = new FXMLLoader();
